@@ -6,11 +6,26 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Nerdbook: il social network che ti tiene in contatto con i tuoi amici</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Marco Brundu">
+        <meta name="keywords" content="Nerdbook amici descrizione social network login registrazione">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <div id="title">
+                <h1>Log in: effettua l'accesso</h1>
+            </div>
+        </header>
+        <div id="loginform">
+            <form action="login.php" method="get">
+                <label for="nickname">Nome Utente</label>
+                <input type="text" name="nickname" id="nickname" value="Nome Cognome"/>
+                <br />
+                <label for="psw">Password</label>
+                <input type="password" name="psw" id="psw" value="password"/>
+            </form>
+        </div>
     </body>
 </html>
