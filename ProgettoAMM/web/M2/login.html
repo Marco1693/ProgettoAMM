@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Nerdbook: il social network che ti tiene in contatto con i tuoi amici</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Marco Brundu">
+        <meta name="keywords" content="Nerdbook amici descrizione social network login registrazione">
+    
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <div id="title">
+                <h1>Log in: effettua l'accesso</h1>
+            </div>
+        </header>
+        <nav id="barra">
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="bacheca.html">Bacheca</a></li>
+                <li><a href="profilo.html">Profilo</a></li>
+                <li><a href="descrizione.html">Descrizione</a></li>
+            </ul>
+        </nav>
+        <div id="loginform">
+            <form action="login.php" method="get">
+                <label for="nickname">Nome Utente</label><br>
+                <input type="text" name="nickname" id="nickname" placeholder="Nome Utente"/>
+                <br />
+                <label for="psw">Password  </label><br>
+                <input type="password" name="psw" id="psw" placeholder="password"/><br>
+                <button type="submit">Sign in</button>
+            </form>
+        </div>
+    </body>
+</html>

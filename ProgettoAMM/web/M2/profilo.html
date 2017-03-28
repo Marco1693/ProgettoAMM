@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Nerdbook: il social network che ti tiene in contatto con i tuoi amici</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Marco Brundu">
+        <meta name="keywords" content="Nerdbook amici descrizione social network">
+   
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <h1>NerdBook: Profilo</h1>
+        </header>
+        <nav id="barra">
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="bacheca.html">Bacheca</a></li>
+                <li><a href="profilo.html">Profilo</a></li>
+                <li><a href="descrizione.html">Descrizione</a></li>
+            </ul>
+        </nav>
+        <div id="dati">
+            <form action="profilo.php" method="get">
+                <label for="nome">Nome</label><br>
+                <input type="text" name="nome" id="nome">
+                <br />
+                <label for="cognome">Cognome</label><br>
+                <input type="text" name="cognome" id="cognome">
+                <br />
+                <label for="immagine">Immagine profilo</label><br>
+                <input type="url" name="immagine" id="immagine">
+                <br />
+                <label for="stato">Inserisci frase di presentazione</label><br>
+                <textarea rows="4" cols="40" name="stato" id="stato"></textarea>
+                <br />
+                <label for="data">Data di nascità</label><br>
+                <input type="date" name="data" id="data">
+                <br />
+                <label for="psw">Password  </label><br>
+                <input type="password" name="psw" id="psw" placeholder="password"/>
+                <br />
+                <label for="cpsw">Conferma Password  </label><br>
+                <input type="password" name="cpsw" id="cpsw" placeholder="password"/>
+                <br />
+                <button type="submit">Salva Modifiche</button>
+            </form>
+        </div>          
+    </body>
+</html>

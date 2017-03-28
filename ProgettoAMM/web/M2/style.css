@@ -1,0 +1,27 @@
+
+/* 
+    Created on : 28-mar-2017, 11.07.12
+    Author     : Marco Brundu
+*/
+
+body{
+    background-color: #EFECCA;
+    font: 17px/25px "Open Sans", Arial, sans-serif;
+    color: #000000;
+}
+
+h1{
+    margin-top: 0px;
+    color: #193441;
+}
+
+h2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #002F2F;
+}
+
+h3{
+    margin-top: 0px;
+    color:#046380;
+}
