@@ -5,23 +5,64 @@
 */
 
 body{
-    background-color: #EFECCA;
-    font: 17px/25px "Open Sans", Arial, sans-serif;
+    background-color: #D0F7DE;
+    font: 16px/20px "Trebuchet MS", Helvetic, sans-serif;
+    text-decoration: none;
     color: #000000;
 }
 
 h1{
     margin-top: 0px;
-    color: #193441;
+    color: #000A3B;
+    font: 35px/40px "Trebuchet MS", Helvetic, sans-serif;
+    font-weight: bold;
 }
 
 h2{
     margin-top: 5px;
     margin-bottom: 5px;
-    color: #002F2F;
+    color: #005F90;
+    font: 20px/25px "Trebuchet MS", Helvetic, sans-serif;
+    font-weight: bold; 
 }
 
 h3{
     margin-top: 0px;
-    color:#046380;
+    color:#00A388;
+    font: 17px/20px "Trebuchet MS", Helvetic, sans-serif;
+    font-weight: bold;
+}
+
+a:link{
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+    color: #00A388;
+}
+
+a:visited{
+    font-syze: 16px;
+    font-style: italic;
+    text-decoration: none;
+    color: #597F2F;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+input{
+    font-size: 15px;
+    color:#040D30;
+}
+
+textArea{
+    font: 15px/20px "Trebuchet MS", Helvetic, sans-serif;
+    color:#040D30;
+}
+
+label{
+    font-size: 15px;
+    color:#040D30;
+    font-weight: bold;
 }
