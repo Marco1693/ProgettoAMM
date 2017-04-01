@@ -69,11 +69,12 @@ a:hover{
 }
 
 nav#barra{
-    background-color: #ffffff;
+    background-color: #1a416d;
     text-align: left;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
-    border: 1px solid #111111;
-    height: auto;
+    border-top: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+    height: 70px;
 }
 
 #barra ul{
@@ -81,26 +82,40 @@ nav#barra{
     padding: 0px;
     list-style-type: none;
     display: inline-block;
-    height: auto;
 }
 #barra li{
     margin:0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    height: 45px;
+    width: 130px;
+    padding-top: 25px;
+    text-align: center;
     border: 1px solid #111111;
+    border-top: 0px;
     border-right: 0px;
     float:left;
-    width:auto;
-}
+    overflow:auto;
+}   
 #barra li:last-child{
     border-right: 1px solid #111111;
 }
+
 #barra a:link{
     font-size:25px;
     font-style: normal;
+    color: #ffffff;
 }
-#barra li a:visited{
-    
+#barra a:visited{
+    font-size:25px;
+    font-style: normal;
+    color: #ffffff;
+}
+#barra a:hover{
+    font-weight:normal;
+    text-decoration: underline;
+}
+
+#title{
+    background-color: #ffffff;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
