@@ -70,18 +70,17 @@ a:hover{
 
 nav#barra{
     background-color: #1a416d;
-    text-align: left;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     border-top: 1px solid #111111;
     border-bottom: 1px solid #111111;
     height: 70px;
 }
 
-#barra ul{
+#barra ul,#barra li{
     margin:0px;
     padding: 0px;
     list-style-type: none;
-    display: inline-block;
+    display:inline-block;
 }
 #barra li{
     margin:0px;
@@ -92,8 +91,6 @@ nav#barra{
     border: 1px solid #111111;
     border-top: 0px;
     border-right: 0px;
-    float:left;
-    overflow:auto;
 }   
 #barra li:last-child{
     border-right: 1px solid #111111;
@@ -118,4 +115,22 @@ nav#barra{
     background-color: #ffffff;
     text-align: left;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+#bacheca{
+    float: left;
+    background-color: #ffffff;
+    height:55px;
+    width: 160px;
+    text-align: center;
+    display: block;
+    padding-top:15px;
+    border-bottom: 2px solid #ffffff;
+}
+
+
+#divBody{
+    margin-top: 0px;
+    border-left: 1px solid #111111;
+    margin-left: 160px;
 }
