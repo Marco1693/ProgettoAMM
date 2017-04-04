@@ -67,7 +67,75 @@ a:hover{
     color:#040D30;
     font-weight: bold;
 }
+#barnav{
+    width: 100%;
+    height:50px;
+    background-color: #1a416d;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    position: fixed;
+    top:0;
+}
+header{
+    border: 1px solid #111111;
+    float: left;
+    height:98.5%;
+}
+nav#barra ul, nav#barra li{
+    list-style-type: none;
+    display:inline-block;
+}
+nav#barra ul{
+    margin: 0;
+    padding:0;
+}
+nav#barra li{
+    width: 140px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #111111;
+    float: left;
+    background-color: #1a416d;
+    padding-top: 14px;
+}
+#barra a:link{
+    font-size:25px;
+    font-style: normal;
+    color: #ffffff;
+}
+#barra a:visited{
+    font-size:25px;
+    font-style: normal;
+    color: #ffffff;
+}
+#barra a:hover{
+    font-weight:normal;
+    text-decoration: underline;
+}
 
+#divBody{
+    margin-top:75px;
+}
+
+#log{
+    padding-top:40px;
+    text-align: center;
+    width: 300px;
+    height: 260px;
+    border: 1px solid #111111;
+    margin-left: auto;
+    margin-right: auto;
+}
+#headl{
+    border: none;
+    text-align: center;
+    padding-left: auto;
+    padding-right: auto;
+    height:98.5%;
+}
+
+#log form{
+}
+/*
 nav#barra{
     background-color: #1a416d;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
@@ -133,4 +201,4 @@ nav#barra{
     margin-top: 0px;
     border-left: 1px solid #111111;
     margin-left: 160px;
-}
+}*/

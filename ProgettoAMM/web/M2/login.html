@@ -16,28 +16,32 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
     </head>
     <body>
-        <header>
-            <div id="title">
-                <h1>Log in: effettua l'accesso</h1>
+        <div id="barnav">
+            <header id="headl">
+                <div id="title">
+                    <h1>Nerdbook</h1>
+                </div>
+            </header>
+            <nav id="barra">
+                <ul>
+                   <!-- <li><a href="login.html">Login</a></li>
+                    <li><a href="bacheca.html">Bacheca</a></li>
+                    <li><a href="profilo.html">Profilo</a></li>
+                    <li><a href="descrizione.html">Descrizione</a></li> -->
+                </ul>
+            </nav>
+        </div>
+        <div id="divBody">
+            <div id="log">
+                <form action="login.php" method="get">
+                    <label for="nickname">Nome Utente</label><br>
+                    <input type="text" name="nickname" id="nickname"/>
+                    <br />
+                    <label for="psw">Password  </label><br>
+                    <input type="password" name="psw" id="psw"/><br>
+                    <button type="submit">Sign in</button>
+                </form>
             </div>
-        </header>
-        <nav id="barra">
-            <ul>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="bacheca.html">Bacheca</a></li>
-                <li><a href="profilo.html">Profilo</a></li>
-                <li><a href="descrizione.html">Descrizione</a></li>
-            </ul>
-        </nav>
-        <div id="dati">
-            <form action="login.php" method="get">
-                <label for="nickname">Nome Utente</label><br>
-                <input type="text" name="nickname" id="nickname"/>
-                <br />
-                <label for="psw">Password  </label><br>
-                <input type="password" name="psw" id="psw"/><br>
-                <button type="submit">Sign in</button>
-            </form>
         </div>
     </body>
 </html>
