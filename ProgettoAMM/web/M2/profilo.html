@@ -32,31 +32,55 @@ and open the template in the editor.
                 </ul>
             </nav>
         </div>
-        <div id="dati">
-            <form action="profilo.php" method="get">
-                <label for="nome">Nome</label><br>
-                <input type="text" name="nome" id="nome">
-                <br />
-                <label for="cognome">Cognome</label><br>
-                <input type="text" name="cognome" id="cognome">
-                <br />
-                <label for="immagine">Immagine profilo</label><br>
-                <input type="url" name="immagine" id="immagine">
-                <br />
-                <label for="stato">Inserisci frase di presentazione</label><br>
-                <textarea rows="4" cols="40" name="stato" id="stato"></textarea>
-                <br />
-                <label for="data">Data di nascità</label><br>
-                <input type="date" name="data" id="data">
-                <br />
-                <label for="psw">Password  </label><br>
-                <input type="password" name="psw" id="psw"/>
-                <br />
-                <label for="cpsw">Conferma Password  </label><br>
-                <input type="password" name="cpsw" id="cpsw"/>
-                <br />
-                <button type="submit">Salva Modifiche</button>
-            </form>
-        </div>          
+        <div id="divBody">
+            <div id="barlat">
+                <h2> Persone </h2>
+                    <h3> persona1</h3>
+                    <h3> persona2</h3>
+                    <h3> persona3</h3>
+                    <h3> persona4</h3>
+                <h2> Gruppi </h2>
+                    <h3> gruppo1</h3>
+                    <h3> gruppo2</h3>
+                    <h3> gruppo3</h3>
+                    <h3> gruppo4</h3>
+            </div>
+            <img id="fprofilo" alt="Foto Profilo" src="img/user3.jpeg" width="150" height="150">
+            
+            <div id="dati">
+                <form class="prof" action="profilo.php" method="get">
+                    <div id="postlab">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome">
+                    </div>
+                    <div id="postlab">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" name="cognome" id="cognome">
+                    </div>
+                    <div id="postlab">
+                        <label for="immagine">Immagine profilo</label>
+                        <input type="url" name="immagine" id="immagine">
+                    </div>
+                    <div id="postlab">
+                        <label for="stato">Frase di presentazione</label>
+                        <textarea rows="4" cols="40" name="stato" id="stato"></textarea>
+                    </div>
+                    <div id="postlab">
+                        <label for="data">Data di nascità</label>
+                        <input type="date" name="data" id="data">
+                    </div>
+                    <div id="postlab">
+                        <label for="psw">Password  </label>
+                        <input type="password" name="psw" id="psw"/>
+                    </div>
+                    <div id="postlab">
+                        <label for="cpsw">Conferma Password  </label>
+                        <input type="password" name="cpsw" id="cpsw"/>
+                    </div>
+                    
+                    <button type="submit">Salva Modifiche</button>
+                </form>
+            </div>    
+        </div>
     </body>
 </html>
