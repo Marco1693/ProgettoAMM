@@ -114,6 +114,12 @@ nav#barra li{
 .attivo{
     background-color: red;
 }
+#lastchild{
+    float:right;
+    margin-top: 1.5%;
+    margin-right: 2%;
+    
+}
 
 #divBody{
     margin-top:50px;
@@ -123,7 +129,7 @@ nav#barra li{
     border: 1px solid #111111;
     padding-left: 10px;
     width: 149px;
-    height:700px;
+    height:100%;
     background-color:#dccc7e;
 }
 
@@ -212,8 +218,7 @@ button{
 #fprofilo{
     float:left;
     width: 140px;
-    margin-right:10px;
-    margin-top: 10px;
+    margin:10px;
 }
 
 .prof{
@@ -226,7 +231,6 @@ button{
     
 }
 
-
 .prof textArea{
     resize: none;
     float: right;
@@ -234,6 +238,7 @@ button{
     width: 59.9%;
     height: 20px;
 }
+
 .prof input {
     float: right;
     clear: both;
@@ -242,70 +247,32 @@ button{
     margin-bottom:10px;
 }
 
-/*
-nav#barra{
-    background-color: #1a416d;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-    border-top: 1px solid #111111;
-    border-bottom: 1px solid #111111;
-    height: 70px;
-}
 
-#barra ul,#barra li{
-    margin:0px;
-    padding: 0px;
-    list-style-type: none;
-    display:inline-block;
-}
-#barra li{
-    margin:0px;
-    height: 45px;
-    width: 130px;
-    padding-top: 25px;
-    text-align: center;
-    border: 1px solid #111111;
-    border-top: 0px;
-    border-right: 0px;
-}   
-#barra li:last-child{
-    border-right: 1px solid #111111;
-}
-
-#barra a:link{
-    font-size:25px;
-    font-style: normal;
-    color: #ffffff;
-}
-#barra a:visited{
-    font-size:25px;
-    font-style: normal;
-    color: #ffffff;
-}
-#barra a:hover{
-    font-weight:normal;
-    text-decoration: underline;
-}
-
-#title{
-    background-color: #ffffff;
-    text-align: left;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-}
-
-#bacheca{
-    float: left;
-    background-color: #ffffff;
-    height:55px;
-    width: 160px;
-    text-align: center;
-    display: block;
-    padding-top:15px;
-    border-bottom: 2px solid #ffffff;
-}
+    
 
 
-#divBody{
-    margin-top: 0px;
-    border-left: 1px solid #111111;
-    margin-left: 160px;
-}*/
+@media only screen and (max-width: 480px){
+    #barlat{
+        display:none;
+                
+    }
+    #posts{
+        margin:10px;
+    }
+    
+
+}
+
+@media only screen and (max-width: 720px){
+    #barlat{
+        display:none;
+                
+    }
+    #posts{
+        margin:10px;
+    }
+    #lastchild{
+        
+        display: none;
+    }
+}
