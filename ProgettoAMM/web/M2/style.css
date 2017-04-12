@@ -116,7 +116,7 @@ nav#barra li{
 }
 #lastchild{
     float:right;
-    margin-top: 1.5%;
+    margin-top: 15px;
     margin-right: 2%;
     
 }
@@ -162,6 +162,10 @@ nav#barra li{
 }
 
 .posts p{
+    margin-left: 10px;
+}
+
+.posts a:link{
     margin-left: 10px;
 }
 
@@ -284,7 +288,11 @@ input:focus ,textarea:focus{
     .footer{
         display:none;
     }
-    
+    #headl{
+        display:block;
+        position:absolute;
+        left:27%;
+    }
 }
 
 
@@ -326,6 +334,16 @@ input:focus ,textarea:focus{
     .footer{
         display:none;
     }
+    
+    #headl{
+        display:block;
+        position:absolute;
+        left:35%; 
+    }
+    
+    #headl h1{
+        font-size:35px;
+    }
 }
 
 @media only screen and (min-width: 760px) and (max-width:1024px){
@@ -343,6 +361,7 @@ input:focus ,textarea:focus{
     .footer{
         display:none;
     }
+    
 }
 @media only screen and (min-width: 1024px){
     .footer {
@@ -387,4 +406,8 @@ input:focus ,textarea:focus{
     background-image:url(img/dec3.png); /*immagine decorativa gruppi*/
     background-repeat:no-repeat;
     background-position:right center;
+}
+
+ul,ol{ /*liste puntate e numerate*/
+    list-style-image:url(img/navp.png);
 }
