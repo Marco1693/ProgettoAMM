@@ -62,7 +62,7 @@ a:hover{
     color:#040D30;
 }
 
-#dati label{
+label {
     font-size: 15px;
     color:#040D30;
     font-weight: bold;
@@ -133,7 +133,7 @@ nav#barra li{
     background-color:#dccc7e;
 }
 
-#posts{
+.posts{
     display:block;
     margin-left: 170px;
     margin-top: 10px;
@@ -144,7 +144,7 @@ nav#barra li{
 }
 
 
-#fprof{
+.fprof{
     float:left;
     margin: 10px;
     width: 50px;
@@ -157,11 +157,11 @@ nav#barra li{
     width: 277px;
     height: 76px;
 }
-#posts h2{
+.posts h2{
     margin-bottom: 50px;
 }
 
-#posts p{
+.posts p{
     margin-left: 10px;
 }
 
@@ -202,7 +202,8 @@ label:before{
 button{
     width: 100%;
     margin-top: 40px;
-    
+    background-color: #dccc7e;
+    font-style: italic;
 }
 
 #log input{
@@ -212,7 +213,7 @@ button{
     border: none;
     position: absolute;
     top: 15%;
-    left: 44%;
+    left: 42.5%;
 }
  
 #fprofilo{
@@ -247,8 +248,9 @@ button{
     margin-bottom:10px;
 }
 
-
-    
+input:focus ,textarea:focus{
+    background-color: #dccc7e;
+}
 
 
 @media only screen and (max-width: 480px){
@@ -256,23 +258,133 @@ button{
         display:none;
                 
     }
-    #posts{
+    .posts{
         margin:10px;
     }
     
-
+    header{
+        display: none;
+    }
+    #lastchild{
+        float:left;
+        margin-left: 2%; 
+        margin-top: 3%;
+    }
+   
+    img#fprofilo{
+        margin-left:33%;
+    }
+    .prof{
+        width: 400px;
+        height: 400px;
+    }
+    textarea#stato{
+        width:57%;
+    }
+    .footer{
+        display:none;
+    }
+    
 }
 
-@media only screen and (max-width: 720px){
+
+@media only screen and (min-width: 480px) and (max-width:759px){
     #barlat{
         display:none;
                 
     }
-    #posts{
+    .posts{
         margin:10px;
     }
-    #lastchild{
-        
-        display: none;
+   
+    
+    #fprofilo{
+        margin-left:150px;
     }
+    .prof{
+        width: 400px;
+        height: 400px;
+    }
+    textarea#stato{
+        width:57%;
+    }
+    header{
+        width: 100px;
+    }
+    
+    header h1{
+        font-size:22px;
+        padding-top:3px;
+    }
+    #lastchild{
+        margin-top:15px;
+    }
+   
+    textarea#stato{
+        width:55%;
+    }
+    .footer{
+        display:none;
+    }
+}
+
+@media only screen and (min-width: 760px) and (max-width:1024px){
+    img#fprofilo{
+        margin: 10px;
+    }
+    .prof{
+        width: 370px;
+        height: 370px;
+    }
+    textarea#stato{
+        width:52%;
+        font-size:10px;
+    }
+    .footer{
+        display:none;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background-color: #1a416d;
+        text-align: center;
+     }
+     .footer a:link{
+        color: #ffffff;
+        font: 20px/25px "Trebuchet MS", Helvetic, sans-serif;
+        font-weight: bold;
+     }
+     .footer a:visited{
+        color: #ffffff;
+        font: 20px/25px "Trebuchet MS", Helvetic, sans-serif;
+        font-weight: bold;
+     }
+     .footer a:hover{
+        color: #ffffff;
+        font: 20px/25px "Trebuchet MS", Helvetic, sans-serif;
+        font-weight: bold;
+     }
+}
+
+#log{
+    background-image:url(img/dec1.gif); /*immagine decorativa login*/
+    background-repeat:no-repeat;
+    background-position:top center;
+}
+
+.pers{
+    background-image:url(img/dec2.ico); /*immagine decorativa persone*/
+    background-repeat:no-repeat;
+    background-position:right center;
+}
+
+.grup{
+    background-image:url(img/dec3.png); /*immagine decorativa gruppi*/
+    background-repeat:no-repeat;
+    background-position:right center;
 }
