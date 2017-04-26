@@ -22,13 +22,12 @@
             
         <!--header contenente in titolo della pagina-->
         <jsp:include page="header.jsp"/>
-        
         <!-- barra di navigazione-->
-        <c:set var="page" value="bacheca" scope="request">
-        <jsp:include page="barra.jsp">
-            
+        <c:set var="page" value="bacheca" scope="request"/>
+        <jsp:include page="barra.jsp"/>
+        </div>
         <div id="divBody">
-            <jsp:include page="barlat.jsp">
+            <jsp:include page="barlat.jsp"/>
                 <!-- posts -->
                 <c:forEach var="post" items="${post}">
                     <div class="posts"> 
@@ -46,7 +45,7 @@
                     </div>
                 </c:forEach>
             <!-- footer -->
-            <jsp:include page="footer.jsp">
+            <jsp:include page="footer.jsp"/>
         </div>
     </body>
 </html>
