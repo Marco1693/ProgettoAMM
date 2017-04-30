@@ -20,10 +20,10 @@
     <body>
         <div id="barnav">
             <!--header contenente in titolo della pagina-->
-        <c:set var="page" value="login" scope="request"/>
+        
         <jsp:include page="header.jsp"/>
         <!-- barra di navigazione-->
-        <c:set var="page" value="login" scope="request"/>
+        <c:set var="page" value="profilo" scope="request"/>
         <jsp:include page="barra.jsp"/>
         
         </div>
@@ -31,7 +31,12 @@
             <!-- barra laterale -->
             <jsp:include page="barlat.jsp"/>
             
-            <img id="fprofilo" alt="Foto Profilo" src="img/user3.jpeg" width="150" height="150">
+            <c:if test="${invalidData == true}">
+                    <div id="invalidDataWarning">I dati inseriti non sono corretti</div>
+            </c:if>
+                    
+          
+            <img id="fprofilo" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
             
             <div id="dati">
                 <form class="prof" action="profilo.php" method="get">

@@ -1,5 +1,12 @@
+<%-- 
+    Document   : descrizione
+    Created on : 30-apr-2017, 17.09.21
+    Author     : Marco Brundu
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="it">
+<html>
     <head>
         <title>Nerdbook: il social network che ti tiene in contatto con i tuoi amici</title>
         
@@ -12,19 +19,11 @@
     </head>
     <body>
         <div id="barnav">
-            <header>
-                <div id="title">
-                    <h1>NerdBook</h1>
-                </div>
-            </header>
-            <nav id="barra">
-                <ul>
-                    <li><a href="login.html">Login</a></li>
-                    <!--<li><a href="bacheca.html">Bacheca</a></li>
-                    <li><a href="profilo.html">Profilo</a></li>
-                    <li><a href="descrizione.html">Descrizione</a></li> -->
-                </ul>
-            </nav>
+            <!--header contenente in titolo della pagina-->
+            <jsp:include page="header.jsp"/>
+            <!-- barra di navigazione-->
+            <c:set var="page" value="descrizione" scope="request"/>
+            <jsp:include page="barra.jsp"/>
         </div>  
         <div>
             <h2>Barra di Navigazione</h2>
