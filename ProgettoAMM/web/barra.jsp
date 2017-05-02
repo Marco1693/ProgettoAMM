@@ -14,7 +14,9 @@
                     <li <c:if test="${page=='profilo'}">class="active"</c:if>><a href="profilo.html">Login</a></li>
                     <li <c:if test="${page=='bacheca'}">class="active"</c:if>><a href="Bacheca">Bacheca</a></li>
                 </ul>
-            <a id="lastchild" href="Login">log out</a>
+            <c:if test="${empty param.user}">
+                <a id="lastchild" href="Login?logout=1">log out</a>
+            </c:if>
         </nav>
     </c:when>
 
@@ -26,7 +28,9 @@
                     <li <c:if test="${page=='profilo'}">class="active"</c:if>><a href="profilo.html">Login</a></li>
                     <li <c:if test="${page=='bacheca'}">class="active"</c:if>><a href="Bacheca">Bacheca</a></li>
                 </ul>
-            <a id="lastchild" href="Login">log out</a>
+            <c:if test="${empty param.user}">
+                <a id="lastchild" href="Login?logout=1">log out</a>
+            </c:if>
         </nav>
     </c:when>
 
@@ -34,7 +38,7 @@
     <c:when test="${page=='descrizione'}">
         <nav id="barra">
             <ul>
-                <li><a href="../Login">Login</a></li>
+                <li><a href="Login">Login</a></li>
             </ul>
         </nav
     </c:when>

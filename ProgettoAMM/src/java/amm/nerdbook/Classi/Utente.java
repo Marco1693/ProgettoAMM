@@ -12,6 +12,7 @@ package amm.nerdbook.Classi;
 public class Utente {
     
     private int id;
+    private String username;
     private String nome;
     private String cognome;
     private String urlFotoProfilo;
@@ -21,6 +22,7 @@ public class Utente {
     
     public Utente(){
         id = 0;
+        username= "";
         nome = "";
         cognome= "";
         urlFotoProfilo="";
@@ -43,6 +45,13 @@ public class Utente {
         this.id = id;
     }
     
+    public String getUsername(){
+        return this.username;
+    }
+    
+    public void setUsername(String username){
+        this.username = username;
+    }
     /**
      * @return nome dell'utente
      */

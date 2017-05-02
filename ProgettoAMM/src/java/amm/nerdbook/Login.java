@@ -46,13 +46,12 @@ public class Login extends HttpServlet {
         //(Utente già loggato)
         if (session.getAttribute("loggedIn") != null &&
             session.getAttribute("loggedIn").equals(true)) {
-
             request.getRequestDispatcher("Bacheca").forward(request, response);
             return;
         
         //Se l'utente non è loggato...
         } else {
-            String username = request.getParameter("username");
+            String username = request.getParameter("nickname");
             String password = request.getParameter("password");
         
             
@@ -79,13 +78,22 @@ public class Login extends HttpServlet {
                     session.setAttribute("loggedIn", true);
                     session.setAttribute("loggedUserID", loggedUserID);
                     
-                    request.getRequestDispatcher("Bacheca").forward(request, response);
-                    return;
+                    if(UtenteFactory.getInstance().getUtenteById(loggedUserID).getNome()== null ||
+                       UtenteFactory.getInstance().getUtenteById(loggedUserID).getCognome()== null ||
+                       UtenteFactory.getInstance().getUtenteById(loggedUserID).getUrlFotoProfilo()== null ||
+                       UtenteFactory.getInstance().getUtenteById(loggedUserID).getFraseDiPresentazione()== null)
+                    {
+                        request.getRequestDispatcher("Profilo").forward(request,response);
+                        return;
+                    }else{
+                        request.getRequestDispatcher("Bacheca").forward(request, response);
+                        return;
+                    }
                 } else { //altrimenti se la coppia user/pass non è valida (id==-1)
                     
                     //ritorno al form del login informandolo che i dati non sono validi
                     request.setAttribute("invalidData", true);
-                    request.getRequestDispatcher("M2/login.jsp").forward(request, response);
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                     return;
                 }
                 
@@ -98,7 +106,7 @@ public class Login extends HttpServlet {
           tentativo di accesso diretto alla servlet Login -> reindirizzo verso 
           il form di login.
         */
-        request.getRequestDispatcher("M2/login.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
