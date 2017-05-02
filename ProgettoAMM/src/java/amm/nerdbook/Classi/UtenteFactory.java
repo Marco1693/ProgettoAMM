@@ -67,4 +67,14 @@ public class UtenteFactory {
         }
         return null;
     }
+    
+    public int getIdByUserAndPassword(String username, String password){
+        for(Utente user : this.listaUtenti){
+            if(user.getNome().equals(username) && user.getPassword().equals(password)){
+                return user.getId();
+            }
+        }
+        return -1;
+    }
+        
 }
