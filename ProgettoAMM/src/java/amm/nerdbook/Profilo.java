@@ -69,12 +69,24 @@ public class Profilo extends HttpServlet {
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
+            String nome = request.getParameter("nome");
+            String urlFotoProfilo = request.getParameter("urlFotoProfilo");
+            String fraseDiPresentazione = request.getParameter("fraseDiPresentazione");
+            String cognome = request.getParameter("cognome");
+            String dataNascita = request.getParameter("dataNascita");
+            String password = request.getParameter("password");
+            request.getRequestDispatcher("profilo.jsp").forward(request, response);
+            return;
         }
         else{
             session.setAttribute("userLogged", false);
             request.getRequestDispatcher("Login").forward(request, response);
+            return;
         }
+   
     }
+
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
