@@ -54,19 +54,6 @@ public class Login extends HttpServlet {
             String username = request.getParameter("nickname");
             String password = request.getParameter("password");
         
-            
-            /*
-            Nelle slide viste a lezione è presente una versione leggermente 
-            differente che utilizza un metodo this.login il quale restituisce 
-            true se la coppia user/pass è valida, false altrimenti.
-            L'implementazione di GaTeender prevede che se sono presenti
-            i parametri post username e password (inviati dal loginForm.jsp)
-            allora verifica che questa coppia corrisponda a un gatto registrato 
-            (id!=-1) e in caso positivo imposta :
-            -attributo di sessione loggedIn a true
-            -attributo di sessione loggedUserId contenente lo userID dell'utente 
-             loggato
-            */
             if (username != null &&
                 password != null) 
             {

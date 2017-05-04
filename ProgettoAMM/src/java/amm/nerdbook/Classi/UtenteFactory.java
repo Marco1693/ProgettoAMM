@@ -34,17 +34,17 @@ public class UtenteFactory {
         user1.setUrlFotoProfilo("M2/img/user1.jpeg");
         user1.setFraseDiPresentazione("non so cosa scrivere 123");
         user1.setDataNascita("11/11/1980");
-        user1.setPassword("1234");
+        user1.setPassword("123");
         
         Utente user2 = new Utente();
         user2.setId(1);
-        user1.setUsername("giampy123");
+        user2.setUsername("giampy123");
         user2.setNome("Giampaolo");
         user2.setCognome("Pazzini");
         user2.setUrlFotoProfilo("M2/img/user2.jpeg");
         user2.setFraseDiPresentazione("attualmente giocatore dell'Hellas Verona");
         user2.setDataNascita("02/08/1984");
-        user2.setPassword("montolivolento");
+        user2.setPassword("123");
         
         Utente user3 = new Utente();
         user3.setId(2);

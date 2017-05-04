@@ -18,63 +18,68 @@
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
     </head>
     <body>
-        <div id="barnav">
-            <!--header contenente in titolo della pagina-->
+        <c:if test="${userLogged==true}">
+            
         
-        <jsp:include page="header.jsp"/>
-        <!-- barra di navigazione-->
-        <c:set var="page" value="profilo" scope="request"/>
-        <jsp:include page="barra.jsp"/>
-        
-        </div>
-        <div id="divBody">
-            <!-- barra laterale -->
-            <jsp:include page="barlat.jsp"/>
-            
-            <c:if test="${invalidData == true}">
-                    <div id="invalidDataWarning">I dati inseriti non sono corretti</div>
-            </c:if>
-                    
-          
-            <img id="fprofilo" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
-            
-            <div id="dati">
-                <form class="prof" action="profilo.php" method="get">
-                    <div>
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome">
-                    </div>
-                    <div>
-                        <label for="cognome">Cognome</label>
-                        <input type="text" name="cognome" id="cognome">
-                    </div>
-                    <div>
-                        <label for="immagine">Immagine profilo</label>
-                        <input type="url" name="immagine" id="immagine">
-                    </div>
-                    <div>
-                        <label for="stato">Frase di presentazione</label>
-                        <textarea rows="4" cols="40" name="stato" id="stato"></textarea>
-                    </div>
-                    <div>
-                        <label for="data">Data di nascità</label>
-                        <input type="date" name="data" id="data">
-                    </div>
-                    <div>
-                        <label for="psw">Password  </label>
-                        <input type="password" name="psw" id="psw"/>
-                    </div>
-                    <div>
-                        <label for="cpsw">Conferma Password  </label>
-                        <input type="password" name="cpsw" id="cpsw"/>
-                    </div>
-                    
-                    <button type="submit">Salva Modifiche</button>
-                </form>
-            </div>   
-            
-            <!-- footer -->
-            <jsp:include page="footer.jsp"/>
-        </div>
+            <div id="barnav">
+                <!--header contenente in titolo della pagina-->
+
+            <jsp:include page="header.jsp"/>
+            <!-- barra di navigazione-->
+            <c:set var="page" value="profilo" scope="request"/>
+            <jsp:include page="barra.jsp"/>
+
+            </div>
+            <div id="divBody">
+                <!-- barra laterale -->
+                <jsp:include page="barlat.jsp"/>
+
+
+                <img id="fprofilo" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
+
+                <div id="dati">
+                    <form class="prof" action="profilo.php" method="get">
+                        <div>
+                            <label for="nome">Nome</label>
+                            <input type="text" name="nome" id="nome" value="${utente.name}">
+                        </div>
+                        <div>
+                            <label for="cognome">Cognome</label>
+                            <input type="text" name="cognome" id="cognome">
+                        </div>
+                        <div>
+                            <label for="immagine">Immagine profilo</label>
+                            <input type="url" name="immagine" id="immagine">
+                        </div>
+                        <div>
+                            <label for="stato">Frase di presentazione</label>
+                            <textarea rows="4" cols="40" name="stato" id="stato"></textarea>
+                        </div>
+                        <div>
+                            <label for="data">Data di nascità</label>
+                            <input type="date" name="data" id="data">
+                        </div>
+                        <div>
+                            <label for="psw">Password  </label>
+                            <input type="password" name="psw" id="psw"/>
+                        </div>
+                        <div>
+                            <label for="cpsw">Conferma Password  </label>
+                            <input type="password" name="cpsw" id="cpsw"/>
+                        </div>
+
+                        <button type="submit">Salva Modifiche</button>
+                    </form>
+                </div>   
+
+                <!-- footer -->
+                <jsp:include page="footer.jsp"/>
+            </div>
+        </c:if>
+        <c:if test="${userLogged == false}">
+            <div>
+                <p> ACCESSO NEGATO</p>
+            </div> 
+        </c:if>
     </body>
 </html>

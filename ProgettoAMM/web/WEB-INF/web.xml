@@ -4,9 +4,17 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>amm.nerdbook.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Profilo</servlet-name>
+        <servlet-class>amm.nerdbook.Profilo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profilo</servlet-name>
+        <url-pattern>/Profilo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
