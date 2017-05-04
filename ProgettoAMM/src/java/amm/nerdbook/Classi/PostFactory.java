@@ -35,7 +35,7 @@ public class PostFactory {
         post1.setPostType(Post.Type.TEXT);
 
         Post post2 = new Post();
-        post2.setContent("M2/img/gol.jpg");
+        post2.setContent("img/gol.jpeg");
         post2.setId(1);
         post2.setUtente(utenteFactory.getUtenteById(1));
         post2.setPostType(Post.Type.IMAGE);

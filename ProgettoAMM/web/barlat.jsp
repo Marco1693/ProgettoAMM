@@ -9,10 +9,12 @@
 
 <div id="barlat">
     <h2 class="pers"> Persone </h2>
-        <h3> ${user1.nome}</h3>
-        <h3> ${user2.nome}</h3>
-        <h3> &{user3.nome}</h3>
+        <c:forEach var="utenti" items="${utenti}">
+            <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome}</a></h3>
+        </c:forEach>
+
     <h2 class="grup"> Gruppi </h2>
-        <h3> &{group1.nome}</h3>
-        <h3> &{group2.nome}</h3>
+    <c:forEach var="gruppi" items="${gruppi}">
+        <h3> ${gruppi.nomeGruppo}</h3>
+    </c:forEach>
 </div>

@@ -29,21 +29,33 @@
         <div id="divBody">
             <jsp:include page="barlat.jsp"/>
                 <!-- posts -->
-                <c:forEach var="post" items="${post}">
-                    <div class="posts"> 
-                        <img class="fprof" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
-                        <h2>${utente.nome}</h2>
-                        <c:if test="${post.postType == 'TEXT'}">
-                            <p>${post.content}</p>  
-                        </c:if>
-                        <c:if test="${post.postType == 'IMAGE'}">
-                            <img class="imgp" alt="Allegato" src="${post.content}">
-                        </c:if>
-                        <c:if test="${post.postType == 'URL'}">
-                            <a href="${post.content}">${post.content}</a>
-                        </c:if>
-                    </div>
-                </c:forEach>
+            <div id="nuovoPost">
+                <form id="newPosts" action="Bacheca" method="get">
+
+                    <label for="content">Nuovo Post</label><br>
+                    <textarea rows="4" cols="40" name="content" id="content"></textarea>
+                    <br />
+                    <button type="submit">Crea nuovo post</button>
+
+                </form>
+            </div>
+            
+            <c:forEach var="post" items="${post}">
+
+                <div class="posts"> 
+                    <img class="fprof" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
+                    <h2>${utente.nome}</h2>
+                    <c:if test="${post.postType == 'TEXT'}">
+                        <p>${post.content}</p>  
+                    </c:if>
+                    <c:if test="${post.postType == 'IMAGE'}">
+                        <img class="imgp" alt="Allegato" src="${post.content}">
+                    </c:if>
+                    <c:if test="${post.postType == 'URL'}">
+                        <a href="${post.content}">${post.content}</a>
+                    </c:if>
+                </div>
+            </c:forEach>
             <!-- footer -->
             <jsp:include page="footer.jsp"/>
         </div>

@@ -256,6 +256,36 @@ input:focus ,textarea:focus{
     background-color: #dccc7e;
 }
 
+form#newPosts{
+    display: inline-block;
+    width: 300px;
+    height:200px;
+    background: #c6ffb3;
+    margin:10px;
+    padding-left: 20px;
+    border: 1px solid #111111;
+}
+
+form#newPosts button{
+    width: 270px;
+}
+
+form#newPosts textArea{
+    resize: none;
+    width: 90%;
+}
+form#newPosts button{
+    background-color: #e6ac00;
+    width: 90%;
+}
+
+div#nuovoPost{
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    
+}
+
 
 @media only screen and (max-width: 480px){
     #barlat{

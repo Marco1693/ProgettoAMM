@@ -8,7 +8,7 @@ package amm.nerdbook.Classi;
 import java.util.ArrayList;
 /**
  *
- * @author Utente
+ * @author Marco
  */
 public class GruppoFactory {
     
@@ -49,5 +49,8 @@ public class GruppoFactory {
             }
         }
         return null;
+    }
+     public ArrayList<Gruppo> getListaGruppi(){
+        return this.listaGruppi;
     }
 }

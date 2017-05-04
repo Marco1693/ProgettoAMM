@@ -75,6 +75,10 @@ public class UtenteFactory {
         listaUtenti.add(incompleto);
     }
     
+    public ArrayList<Utente> getListaUtenti(){
+        return listaUtenti;
+    }
+    
     public Utente getUtenteById(int id) {
         for (Utente user : this.listaUtenti) {
             if (user.getId() == id) {

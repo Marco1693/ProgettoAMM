@@ -5,10 +5,10 @@
  */
 package amm.nerdbook;
 
-import java.util.ArrayList;
 import amm.nerdbook.Classi.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Marco
+ * @author Marco Brundu
  */
-public class Profilo extends HttpServlet {
+public class Bacheca extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,15 +34,14 @@ public class Profilo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+      HttpSession session = request.getSession(false);
         
-        HttpSession session = request.getSession();
-        
-         
-        
+      
         if(session!=null && 
            session.getAttribute("loggedIn")!=null &&
            session.getAttribute("loggedIn").equals(true)){
-
+            
+            
             String user = request.getParameter("user");
             
             int userID;
@@ -53,9 +52,14 @@ public class Profilo extends HttpServlet {
                 Integer loggedUserID = (Integer)session.getAttribute("loggedUserID");
                 userID = loggedUserID;
             }
-            
+
             Utente utente = UtenteFactory.getInstance().getUtenteById(userID);
             if(utente != null){
+                request.setAttribute("utente", utente);
+
+                List<Post> posts = PostFactory.getInstance().getPostList(utente);
+                
+                request.setAttribute("post", posts);
                 /* Prende la lista degli utenti*/ 
                 ArrayList<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
                 /* Prende la lista dei Gruppi*/
@@ -67,18 +71,16 @@ public class Profilo extends HttpServlet {
                 request.setAttribute("utenti", utenti);
                 /* Lista Gruppi*/
                 request.setAttribute("gruppi", gruppi);
-                
-                request.getRequestDispatcher("profilo.jsp").forward(request, response);
+
+                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
         }
         else{
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            request.getRequestDispatcher("Login").forward(request, response);
         }
     }
-
-   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

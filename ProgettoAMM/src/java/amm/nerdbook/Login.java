@@ -42,14 +42,13 @@ public class Login extends HttpServlet {
             return;
         }
         
-        //Se esiste un attributo di sessione loggedIn e questo vale true
-        //(Utente già loggato)
+        
         if (session.getAttribute("loggedIn") != null &&
             session.getAttribute("loggedIn").equals(true)) {
             request.getRequestDispatcher("Bacheca").forward(request, response);
             return;
         
-        //Se l'utente non è loggato...
+        
         } else {
             String username = request.getParameter("nickname");
             String password = request.getParameter("password");
@@ -59,7 +58,7 @@ public class Login extends HttpServlet {
             {
                 int loggedUserID = UtenteFactory.getInstance().getIdByUserAndPassword(username, password);
                 
-                //se l'utente è valido...
+                
                 if(loggedUserID!=-1)
                 {
                     session.setAttribute("loggedIn", true);
@@ -76,23 +75,15 @@ public class Login extends HttpServlet {
                         request.getRequestDispatcher("Bacheca").forward(request, response);
                         return;
                     }
-                } else { //altrimenti se la coppia user/pass non è valida (id==-1)
+                } else { 
                     
-                    //ritorno al form del login informandolo che i dati non sono validi
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                     return;
                 }
-                
-                
+  
             }
         }
-        
-        /*
-          Se non si verifica nessuno degli altri casi, 
-          tentativo di accesso diretto alla servlet Login -> reindirizzo verso 
-          il form di login.
-        */
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 

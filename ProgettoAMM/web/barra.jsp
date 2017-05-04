@@ -11,7 +11,7 @@
     <c:when test="${page=='bacheca'}">
         <nav id="barra">
                 <ul>
-                    <li <c:if test="${page=='profilo'}">class="active"</c:if>><a href="profilo.html">Login</a></li>
+                    <li <c:if test="${page=='profilo'}">class="active"</c:if>><a href="Profilo">Profilo</a></li>
                     <li <c:if test="${page=='bacheca'}">class="active"</c:if>><a href="Bacheca">Bacheca</a></li>
                 </ul>
             <c:if test="${empty param.user}">
