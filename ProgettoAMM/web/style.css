@@ -256,19 +256,6 @@ input:focus ,textarea:focus{
     background-color: #dccc7e;
 }
 
-form#newPosts{
-    display: inline-block;
-    width: 300px;
-    height:200px;
-    background: #c6ffb3;
-    margin:10px;
-    padding-left: 20px;
-    border: 1px solid #111111;
-}
-
-form#newPosts button{
-    width: 270px;
-}
 
 form#newPosts textArea{
     resize: none;
@@ -282,8 +269,18 @@ form#newPosts button{
 div#nuovoPost{
     display: inline-block;
     width: 300px;
-    height: 200px;
+    height:200px;
+    background: #c6ffb3;
+    margin-top:10px;
+    padding-left: 20px;
+    border: 1px solid #111111;
+    margin-left: 25%;
+    margin-bottom: 10px;
     
+}
+
+#conferm{
+    margin:25%;
 }
 
 
@@ -322,6 +319,9 @@ div#nuovoPost{
         display:block;
         position:absolute;
         left:27%;
+    }
+    div#nuovoPost{
+        margin-left:10px;
     }
 }
 

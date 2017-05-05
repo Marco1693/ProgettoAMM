@@ -73,9 +73,13 @@ public class Bacheca extends HttpServlet {
                 request.setAttribute("gruppi", gruppi);
 
                 request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                
+                
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
+            
+            
         }
         else{
             request.getRequestDispatcher("Login").forward(request, response);

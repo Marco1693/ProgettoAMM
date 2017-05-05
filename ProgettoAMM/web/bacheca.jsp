@@ -30,10 +30,10 @@
             <jsp:include page="barlat.jsp"/>
                 <!-- posts -->
             <div id="nuovoPost">
-                <form id="newPosts" action="Bacheca" method="get">
+                <form id="newPosts" action="Bacheca" method="post">
 
-                    <label for="content">Nuovo Post</label><br>
-                    <textarea rows="4" cols="40" name="content" id="content"></textarea>
+                    <label for="contenuto">Nuovo Post</label><br>
+                    <textarea rows="4" cols="40" name="contenuto" id="contenuto"></textarea>
                     <br />
                     <button type="submit">Crea nuovo post</button>
 

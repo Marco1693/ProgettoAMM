@@ -10,7 +10,7 @@
 <div id="barlat">
     <h2 class="pers"> Persone </h2>
         <c:forEach var="utenti" items="${utenti}">
-            <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome}</a></h3>
+            <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome} ${utenti.cognome}</a></h3>
         </c:forEach>
 
     <h2 class="grup"> Gruppi </h2>
