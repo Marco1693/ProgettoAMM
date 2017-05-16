@@ -16,13 +16,14 @@ public class Post {
     };
 
     protected int id;
-    protected Utente utente;
+    protected int utente;
     private String content;
     private Type postType;
+    private String text;
 
     public Post() {
         id = 0;
-        utente = null;
+        utente = 0;
         content = "";
         postType = Type.TEXT;
     }
@@ -44,14 +45,14 @@ public class Post {
     /**
      * @return the user
      */
-    public Utente getUtente() {
+    public int getUtente() {
         return utente;
     }
 
     /**
      * @param utente the user to set
      */
-    public void setUtente(Utente utente) {
+    public void setUtente(int utente) {
         this.utente = utente;
     }
 
@@ -82,4 +83,14 @@ public class Post {
     public void setPostType(Type postType) {
         this.postType = postType;
     }
+    
+    public String getText(){
+        return text;
+    }
+    
+    public void setText(String text){
+        this.text = text;
+    }
+    
+
 }

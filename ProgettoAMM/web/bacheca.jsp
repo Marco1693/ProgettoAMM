@@ -50,9 +50,11 @@
                     </c:if>
                     <c:if test="${post.postType == 'IMAGE'}">
                         <img class="imgp" alt="Allegato" src="${post.content}">
+                        <p>${post.text}<p>
                     </c:if>
                     <c:if test="${post.postType == 'URL'}">
                         <a href="${post.content}">${post.content}</a>
+                        <p>${post.text}<p>
                     </c:if>
                 </div>
             </c:forEach>

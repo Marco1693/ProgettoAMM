@@ -31,19 +31,22 @@ public class PostFactory {
         Post post1 = new Post();
         post1.setContent("Ognuna di quelle vite è quella giusta. Ogni percorso è il giusto percorso. Ogni cosa avrebbe potuto essere un'altra e avrebbe avuto lo stesso profondo significato.(Nemo Nobody)");
         post1.setId(0);
-        post1.setUtente(utenteFactory.getUtenteById(0));
+        post1.setUtente(0);
+        post1.setText("");
         post1.setPostType(Post.Type.TEXT);
 
         Post post2 = new Post();
         post2.setContent("img/gol.jpeg");
         post2.setId(1);
-        post2.setUtente(utenteFactory.getUtenteById(1));
+        post2.setUtente(1);
+        post2.setText("CHE GOOOL DI KAKA'");
         post2.setPostType(Post.Type.IMAGE);
 
         Post post3 = new Post();
         post3.setContent("https://tinyurl.com/k34etds");
         post3.setId(2);
-        post3.setUtente(utenteFactory.getUtenteById(2));
+        post3.setUtente(2);
+        post3.setText("non mi ricordo cosa c'era nel link");
         post3.setPostType(Post.Type.URL);
         
 
@@ -62,12 +65,12 @@ public class PostFactory {
         return null;
     }
 
-    public List getPostList(Utente utnt) {
+    public List getPostList(int utnt) {
 
         List<Post> listaPost = new ArrayList<Post>();
 
         for (Post post : this.listaPost) {
-            if (post.getUtente().equals(utnt)) {
+            if (post.getUtente()==utnt){
                 listaPost.add(post);
             }
         }

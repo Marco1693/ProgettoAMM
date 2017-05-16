@@ -74,7 +74,7 @@ public class Profilo extends HttpServlet {
             }
         }
         else{
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            request.getRequestDispatcher("Login").forward(request, response);
         }
     }
 
