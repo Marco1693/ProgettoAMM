@@ -14,13 +14,24 @@ import java.util.ArrayList;
 
 public class PostFactory {
     private static PostFactory singleton;
-
+    
     public static PostFactory getInstance() {
         if (singleton == null) {
             singleton = new PostFactory();
         }
         return singleton;
     }
+    
+    
+    private String connectionString;
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    public String getConnectionString(){
+	return this.connectionString;
+    }
+    
+    
     private ArrayList<Post> listaPost = new ArrayList<Post>();
 
     private PostFactory() {
@@ -30,22 +41,22 @@ public class PostFactory {
         //Creazione Post
         Post post1 = new Post();
         post1.setContent("Ognuna di quelle vite è quella giusta. Ogni percorso è il giusto percorso. Ogni cosa avrebbe potuto essere un'altra e avrebbe avuto lo stesso profondo significato.(Nemo Nobody)");
-        post1.setId(0);
-        post1.setUtente(0);
+        post1.setId(1);
+        post1.setUtente(1);
         post1.setText("");
         post1.setPostType(Post.Type.TEXT);
 
         Post post2 = new Post();
         post2.setContent("img/gol.jpeg");
-        post2.setId(1);
-        post2.setUtente(1);
+        post2.setId(2);
+        post2.setUtente(2);
         post2.setText("CHE GOOOL DI KAKA'");
         post2.setPostType(Post.Type.IMAGE);
 
         Post post3 = new Post();
         post3.setContent("https://tinyurl.com/k34etds");
-        post3.setId(2);
-        post3.setUtente(2);
+        post3.setId(3);
+        post3.setUtente(3);
         post3.setText("non mi ricordo cosa c'era nel link");
         post3.setPostType(Post.Type.URL);
         

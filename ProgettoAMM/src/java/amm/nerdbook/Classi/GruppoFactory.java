@@ -13,12 +13,21 @@ import java.util.ArrayList;
 public class GruppoFactory {
     
     private static GruppoFactory singleton;
+    
 
     public static GruppoFactory getInstance() {
         if (singleton == null) {
             singleton = new GruppoFactory();
         }
         return singleton;
+    }
+    
+    private String connectionString;
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    public String getConnectionString(){
+	return this.connectionString;
     }
     
     private ArrayList<Gruppo> listaGruppi = new ArrayList<Gruppo>();
