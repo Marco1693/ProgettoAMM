@@ -5,7 +5,13 @@
  */
 package amm.nerdbook.Classi;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -29,78 +35,117 @@ public class UtenteFactory {
 	return this.connectionString;
     }
     
-    private ArrayList<Utente> listaUtenti = new ArrayList<Utente>();
     
-    private UtenteFactory() {
-        //Creazione utenti
-        
-        Utente user1 = new Utente();
-        user1.setId(1);
-        user1.setUsername("igna123");
-        user1.setNome("Ignazio");
-        user1.setCognome("Meh");
-        user1.setUrlFotoProfilo("M2/img/user1.jpeg");
-        user1.setFraseDiPresentazione("non so cosa scrivere 123");
-        user1.setDataNascita("11/11/1980");
-        user1.setPassword("123");
-        
-        Utente user2 = new Utente();
-        user2.setId(2);
-        user2.setUsername("giampy123");
-        user2.setNome("Giampaolo");
-        user2.setCognome("Pazzini");
-        user2.setUrlFotoProfilo("M2/img/user2.jpeg");
-        user2.setFraseDiPresentazione("attualmente giocatore dell'Hellas Verona");
-        user2.setDataNascita("02/08/1984");
-        user2.setPassword("123");
-        
-        Utente user3 = new Utente();
-        user3.setId(3);
-        user3.setUsername("marko123");
-        user3.setNome("Marco");
-        user3.setCognome("Brundu");
-        user3.setUrlFotoProfilo("M2/img/user3.jpeg");
-        user3.setFraseDiPresentazione("mai una gioia");
-        user3.setDataNascita("16/10/1993");
-        user3.setPassword("123");
-        
-        Utente incompleto = new Utente();
-        incompleto.setId(4);
-        incompleto.setUsername("missing123");
-        incompleto.setNome(null);
-        incompleto.setCognome(null);
-        incompleto.setUrlFotoProfilo("");
-        incompleto.setFraseDiPresentazione("esd");
-        incompleto.setDataNascita("01/01/1999");
-        incompleto.setPassword("123");
+    private UtenteFactory(){
+    }    
+    
+    public Utente getUtenteById(int id){
+        try {
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "select * from utenti "
+                    + "where utente_id = ?";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setInt(1, id);
+            
+            ResultSet res = stmt.executeQuery();
 
-       
-        listaUtenti.add(user1);
-        listaUtenti.add(user2);
-        listaUtenti.add(user3);
-        listaUtenti.add(incompleto);
-    }
-    
-    public ArrayList<Utente> getListaUtenti(){
-        return listaUtenti;
-    }
-    
-    public Utente getUtenteById(int id) {
-        for (Utente user : this.listaUtenti) {
-            if (user.getId() == id) {
-                return user;
+            if (res.next()) {
+                Utente current = new Utente();
+                current.setId(res.getInt("utente_id"));
+                current.setUsername(res.getString("username"));
+                current.setNome(res.getString("nome"));
+                current.setCognome(res.getString("cognome"));
+                current.setPassword(res.getString("password"));
+                current.setUrlFotoProfilo(res.getString("urlFotoProfilo"));
+                current.setFraseDiPresentazione(res.getString("fraseDiPresentazione"));
+                current.setDataNascita(res.getString("dataNascita"));
+
+                stmt.close();
+                conn.close();
+                return current;
             }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
     
     public int getIdByUserAndPassword(String username, String password){
-        for(Utente user : this.listaUtenti){
-            if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                return user.getId();
+        try {
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "select utente_id from utenti "
+                    + "where username = ? and password = ?";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            
+            ResultSet res = stmt.executeQuery();
+
+            if (res.next()) {
+                int id = res.getInt("utente_id");
+
+                stmt.close();
+                conn.close();
+                return id;
             }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return -1;
+    }
+    
+    public List getListaUtenti() {
+        List<Utente> listaUtenti = new ArrayList<Utente>();
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "select * from utenti";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                Utente current = new Utente();
+                current.setId(res.getInt("utente_id"));
+                current.setUsername(res.getString("username"));
+                current.setNome(res.getString("nome"));
+                current.setCognome(res.getString("cognome"));
+                current.setPassword(res.getString("password"));
+                current.setUrlFotoProfilo(res.getString("urlFotoProfilo"));
+                current.setFraseDiPresentazione(res.getString("fraseDiPresentazione"));
+                current.setDataNascita(res.getString("dataNascita"));
+                
+                listaUtenti.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return listaUtenti;
     }
         
 }

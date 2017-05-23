@@ -61,7 +61,7 @@ public class Bacheca extends HttpServlet {
                 
                 request.setAttribute("post", posts);
                 /* Prende la lista degli utenti*/ 
-                ArrayList<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
+                List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
                 /* Prende la lista dei Gruppi*/
                 ArrayList<Gruppo> gruppi = GruppoFactory.getInstance().getListaGruppi();
                 

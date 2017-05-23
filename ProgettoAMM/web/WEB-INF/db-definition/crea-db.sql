@@ -102,7 +102,7 @@ VALUES (default,
         '',
         1,
         1,
-        'Ognuna di quelle vite � quella giusta. Ogni percorso � il giusto percorso. Ogni cosa avrebbe potuto essere un altra e avrebbe avuto lo stesso profondo significato.(Nemo Nobody)');
+        'Ognuna di quelle vite e quella giusta. Ogni percorso e il giusto percorso. Ogni cosa avrebbe potuto essere un altra e avrebbe avuto lo stesso profondo significato.(Nemo Nobody)');
 INSERT INTO posts (post_id, content, type, author, text)
 VALUES (default,
         'img/gol.jpeg',
