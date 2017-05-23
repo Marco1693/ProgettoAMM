@@ -129,3 +129,4 @@ INSERT INTO gruppi (group_id, nomegruppo, listautentigruppo)
 VALUES (default,
         'MilanGroup',
         (1);
+
