@@ -32,7 +32,7 @@
             <div id="nuovoPost">
                 <form id="newPosts" action="Bacheca" method="post">
 
-                    <label for="contenuto">Nuovo Post</label><br>
+                    <label for="text">Nuovo Post</label><br>
                     <textarea rows="4" cols="40" name="contenuto" id="contenuto"></textarea>
                     <br />
                     <button type="submit">Crea nuovo post</button>

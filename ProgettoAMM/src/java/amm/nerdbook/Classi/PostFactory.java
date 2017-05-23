@@ -5,8 +5,13 @@
  */
 package amm.nerdbook.Classi;
 
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Marco_Brundu
@@ -31,60 +36,150 @@ public class PostFactory {
 	return this.connectionString;
     }
     
-    
-    private ArrayList<Post> listaPost = new ArrayList<Post>();
 
     private PostFactory() {
-        
-        UtenteFactory utenteFactory = UtenteFactory.getInstance();
-
-        //Creazione Post
-        Post post1 = new Post();
-        post1.setContent("Ognuna di quelle vite è quella giusta. Ogni percorso è il giusto percorso. Ogni cosa avrebbe potuto essere un'altra e avrebbe avuto lo stesso profondo significato.(Nemo Nobody)");
-        post1.setId(1);
-        post1.setUtente(1);
-        post1.setText("");
-        post1.setPostType(Post.Type.TEXT);
-
-        Post post2 = new Post();
-        post2.setContent("img/gol.jpeg");
-        post2.setId(2);
-        post2.setUtente(2);
-        post2.setText("CHE GOOOL DI KAKA'");
-        post2.setPostType(Post.Type.IMAGE);
-
-        Post post3 = new Post();
-        post3.setContent("https://tinyurl.com/k34etds");
-        post3.setId(3);
-        post3.setUtente(3);
-        post3.setText("non mi ricordo cosa c'era nel link");
-        post3.setPostType(Post.Type.URL);
-        
-
-        listaPost.add(post1);
-        listaPost.add(post2);
-        listaPost.add(post3);
-  
     }
 
     public Post getPostById(int id) {
-        for (Post post : this.listaPost) {
-            if (post.getId() == id) {
-                return post;
+       UtenteFactory utenteFactory = UtenteFactory.getInstance();
+        
+        try {
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "select * from posts "
+                    + "join posttype on posts.type = posttype.posttype_id "
+                    + "where post_id = ?";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            stmt.setInt(1, id);
+            
+            ResultSet res = stmt.executeQuery();
+
+            if (res.next()) {
+                Post current = new Post();
+                //imposto id del post
+                current.setId(res.getInt("post_id"));
+                
+                //impost il contenuto del post
+                current.setContent(res.getString("content"));
+                current.setContent(res.getString("text"));
+                
+                //imposto il tipo del post
+                current.setPostType(this.postTypeFromString(res.getString("posttype_name")));
+                
+                //imposto l'autore del post
+                Utente autore = utenteFactory.getUtenteById(res.getInt("author"));
+                current.setUtente(autore.getId());
+
+                stmt.close();
+                conn.close();
+                return current;
             }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
+        
     }
-
-    public List getPostList(int utnt) {
-
+    public List getPostList(Utente user) {
         List<Post> listaPost = new ArrayList<Post>();
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "select * from posts "
+                    + "join posttype on posts.type = posttype.posttype_id "
+                    + "where author = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, user.getId());
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
 
-        for (Post post : this.listaPost) {
-            if (post.getUtente()==utnt){
-                listaPost.add(post);
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                
+                Post current = new Post();
+                //imposto id del post
+                current.setId(res.getInt("post_id"));
+                
+                //impost il contenuto del post
+                current.setContent(res.getString("content"));
+                
+                //imposto il tipo del post
+                current.setPostType(this.postTypeFromString(res.getString("posttype_name")));
+
+                //imposto l'autore del post
+                current.setUtente(user.getId());
+                
+                listaPost.add(current);
             }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         return listaPost;
+    }
+    
+    public void addNewPost(Post post){
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "insert into posts (post_id, content, type, author, text) "
+                    + "values (default, ? , ? , ? , ?)";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, post.getContent());
+
+            stmt.setInt(2, this.postTypeFromEnum(post.getPostType()));
+            
+            stmt.setInt(3, post.getUtente());
+            
+            stmt.setString(4, post.getText());
+            
+            // Esecuzione query
+            stmt.executeUpdate();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    private Post.Type postTypeFromString(String type){
+        
+        if(type.equals("IMAGE"))
+            return Post.Type.IMAGE;
+        if(type.equals("URL"))
+            return Post.Type.URL;
+        
+        return Post.Type.TEXT;
+    }
+   
+    private int postTypeFromEnum(Post.Type type){
+        if(type == Post.Type.TEXT)
+                return 1;
+            else
+                if(type == Post.Type.IMAGE)
+                    return 2;
+        return 3;
     }
 }
