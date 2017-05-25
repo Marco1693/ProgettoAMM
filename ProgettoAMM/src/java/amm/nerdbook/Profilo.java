@@ -54,7 +54,10 @@ public class Profilo extends HttpServlet {
                 userID = loggedUserID;
             }
             
+            
             Utente utente = UtenteFactory.getInstance().getUtenteById(userID);
+            
+            
             if(utente != null){
                 /* Prende la lista degli utenti*/ 
                 List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
@@ -72,6 +75,27 @@ public class Profilo extends HttpServlet {
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
+            if(request.getParameter("modifiche")!= null){
+                String modifiche = request.getParameter("modifiche");
+                String name = request.getParameter("nome");
+                String cognome = request.getParameter("cognome");
+                String foto= request.getParameter("immagine");
+                String frase = request.getParameter("stato");
+                String datan = request.getParameter("data");
+                String pass = request.getParameter("pws");
+                if(modifiche.equals("change"));
+                    utente.setNome(name);
+                    utente.setCognome(cognome);
+                    utente.setUrlFotoProfilo(foto);
+                    utente.setFraseDiPresentazione(frase);
+                    utente.setDataNascita(datan);
+                    utente.setPassword(pass);
+                
+                UtenteFactory.getInstance().modificaDati(utente);
+                request.getRequestDispatcher("Profilo").forward(request, response);
+                
+            }
+            
         }
         else{
             request.getRequestDispatcher("Login").forward(request, response);

@@ -21,11 +21,14 @@ public class Post {
     private Type postType;
     private String text;
 
+
     public Post() {
         id = 0;
         utente = 0;
         content = "";
         postType = Type.TEXT;
+        text = "";
+ 
     }
 
     /**
@@ -92,5 +95,6 @@ public class Post {
         this.text = text;
     }
     
+  
 
 }

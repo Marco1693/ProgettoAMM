@@ -90,7 +90,6 @@ public class PostFactory {
         List<Post> listaPost = new ArrayList<Post>();
         
         try {
-            // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
             
             String query = 
@@ -98,26 +97,19 @@ public class PostFactory {
                     + "join posttype on posts.type = posttype.posttype_id "
                     + "where author = ?";
             
-            // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             
-            // Si associano i valori
             stmt.setInt(1, user.getId());
             
-            // Esecuzione query
             ResultSet res = stmt.executeQuery();
 
-            // ciclo sulle righe restituite
             while (res.next()) {
                 
                 Post current = new Post();
-                //imposto id del post
                 current.setId(res.getInt("post_id"));
                 
-                //impost il contenuto del post
                 current.setContent(res.getString("content"));
                 
-                //imposto il tipo del post
                 current.setPostType(this.postTypeFromString(res.getString("posttype_name")));
 
                 //imposto l'autore del post
@@ -125,6 +117,7 @@ public class PostFactory {
                 
                 current.setText(res.getString("text"));
                 
+           
                 listaPost.add(current);
             }
 
@@ -139,17 +132,17 @@ public class PostFactory {
     
     public void addNewPost(Post post){
         try {
-            // path, username, password
+
             Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
             
             String query = 
                       "insert into posts (post_id, content, type, author, text) "
                     + "values (default, ? , ? , ? , ?)";
             
-            // Prepared Statement
+
             PreparedStatement stmt = conn.prepareStatement(query);
             
-            // Si associano i valori
+
             stmt.setString(1, post.getContent());
 
             stmt.setInt(2, this.postTypeFromEnum(post.getPostType()));
@@ -157,6 +150,8 @@ public class PostFactory {
             stmt.setInt(3, post.getUtente());
             
             stmt.setString(4, post.getText());
+            
+
             
             // Esecuzione query
             stmt.executeUpdate();

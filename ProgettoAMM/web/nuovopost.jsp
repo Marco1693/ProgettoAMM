@@ -14,7 +14,7 @@
             <c:choose>
                 <c:when test="${empty newpost}">
                     <div id="formNewPost">
-                        <form action="NuovoPost" method="post">
+                        <form id="newPosts" action="NuovoPost" method="post">
                             <div id="postType">
                                 <div>
                                     <label for="textType">Testo</label>
@@ -37,12 +37,12 @@
                                     <textarea name="testoType" id="testo"></textarea>
                                 </div>
                             </div>
-                            <button type="submit" name="thereIsPost" value="needConfirm">Invia</button>
+                            <button type="submit" name="thereIsPost" value="needConfirm">Crea nuovo Post</button>
                         </form>     
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <div id="formNewPost">
+                    <div id="formNewPosts">
                         <form action="NuovoPost" method="post">
                             <c:if test="${typePost == 'textType'}">
                                 <p>${text}</p>

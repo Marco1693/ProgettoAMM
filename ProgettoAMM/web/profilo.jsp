@@ -38,7 +38,7 @@
             <img id="fprofilo" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
 
             <div id="dati">
-                <form class="prof" action="Profilo" method="get">
+                <form class="prof" action="Profilo" method="post">
                     <div>
                         <label for="nome">Nome</label>
                         <input type="text" name="nome" id="nome" value="${utente.nome}">
@@ -68,7 +68,7 @@
                         <input type="password" name="cpsw" id="cpsw" value="${utente.password}"/>
                     </div>
 
-                    <button type="submit">Salva Modifiche</button>
+                    <button name="modifiche" type="submit" value="change">Salva Modifiche</button>
                 </form>
             </div>   
 

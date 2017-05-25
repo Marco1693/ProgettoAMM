@@ -147,5 +147,41 @@ public class UtenteFactory {
         
         return listaUtenti;
     }
-        
+    public void modificaDati(Utente utente){
+        try {
+
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "update utenti (utente_id, username, nome, cognome, password, urlfotoprofilo, frasedipresentazione, datanascita) "
+                    + "values (?, ? , ? , ? , ?, ?, ? , ?)";
+            
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+
+            stmt.setInt(1, utente.getId());
+
+            stmt.setString(2, utente.getUsername());
+            
+            stmt.setString(3, utente.getNome());
+            
+            stmt.setString(4, utente.getCognome());
+            
+            stmt.setString(5, utente.getPassword());
+            
+            stmt.setString(6, utente.getUrlFotoProfilo());
+            
+            stmt.setString(7, utente.getFraseDiPresentazione());
+            
+            stmt.setString(8, utente.getDataNascita());
+
+            
+            // Esecuzione query
+            stmt.executeUpdate();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

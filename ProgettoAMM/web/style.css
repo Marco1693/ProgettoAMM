@@ -154,8 +154,8 @@ nav#barra li{
     display:block;
     margin: 0 auto;
     margin-bottom: 10px;
-    width: 277px;
-    height: 76px;
+    width: 50%;
+    height: 50%;
 }
 .posts h2{
     margin-bottom: 50px;
@@ -257,27 +257,34 @@ input:focus ,textarea:focus{
 }
 
 
-form#newPosts textArea{
+div#nuovoPost textArea{
     resize: none;
-    width: 90%;
+    width: 100%;
 }
-form#newPosts button{
+div#nuovoPosts button{
     background-color: #e6ac00;
-    width: 90%;
+    width: 100%;
 }
 
 div#nuovoPost{
     display: inline-block;
     width: 300px;
-    height:200px;
+    height:400px;
     background: #c6ffb3;
     margin-top:10px;
     padding-left: 20px;
+    padding-right:20px;
     border: 1px solid #111111;
     margin-left: 25%;
     margin-bottom: 10px;
     
 }
+
+div#nuovoPost input, div#nuovPost label{
+    display:inline-block;
+
+}
+
 
 #conferm{
     margin:25%;
@@ -395,7 +402,7 @@ div#nuovoPost{
 }
 @media only screen and (min-width: 1024px){
     .footer {
-        position: absolute;
+        position: relative;
         right: 0;
         bottom: 0;
         left: 0;
