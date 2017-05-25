@@ -64,7 +64,7 @@ public class PostFactory {
                 
                 //impost il contenuto del post
                 current.setContent(res.getString("content"));
-                current.setContent(res.getString("text"));
+                current.setText(res.getString("text"));
                 
                 //imposto il tipo del post
                 current.setPostType(this.postTypeFromString(res.getString("posttype_name")));
@@ -122,6 +122,8 @@ public class PostFactory {
 
                 //imposto l'autore del post
                 current.setUtente(user.getId());
+                
+                current.setText(res.getString("text"));
                 
                 listaPost.add(current);
             }

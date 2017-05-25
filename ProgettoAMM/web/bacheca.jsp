@@ -29,7 +29,8 @@
         <div id="divBody">
             <jsp:include page="barlat.jsp"/>
                 <!-- posts -->
-            <div id="nuovoPost">
+            <jsp:include page="nuovopost.jsp"/>    
+            <!--<div id="nuovoPost">
                 <form id="newPosts" action="Bacheca" method="post">
 
                     <label for="text">Nuovo Post</label><br>
@@ -38,24 +39,23 @@
                     <button type="submit">Crea nuovo post</button>
 
                 </form>
-            </div>
+            </div>-->
             
             <c:forEach var="post" items="${post}">
 
                 <div class="posts"> 
                     <img class="fprof" alt="Foto Profilo" src="${utente.urlFotoProfilo}">
-                    <h2>${utente.nome}</h2>
+                    <h2>${utente.nome} ${utente.cognome}</h2>
                     <c:if test="${post.postType == 'TEXT'}">
-                        <p>${post.content}</p>  
+                        <p>${post.content}</p> 
                     </c:if>
                     <c:if test="${post.postType == 'IMAGE'}">
                         <img class="imgp" alt="Allegato" src="${post.content}">
-                        <p>${post.text}<p>
                     </c:if>
                     <c:if test="${post.postType == 'URL'}">
                         <a href="${post.content}">${post.content}</a>
-                        <p>${post.text}<p>
                     </c:if>
+                    <p>${post.text}</p> 
                 </div>
             </c:forEach>
             <!-- footer -->
