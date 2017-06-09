@@ -290,6 +290,17 @@ div#nuovoPost input, div#nuovPost label{
     margin:25%;
 }
 
+button#searchYourUser{
+    margin-top:5px;
+    background-color:#c6ffb3;
+}
+input#searchField{
+    size:auto;
+}
+input#searchField:focus{
+    background-color:#c6ffb3;
+}
+
 
 @media only screen and (max-width: 480px){
     #barlat{

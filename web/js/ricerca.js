@@ -6,26 +6,19 @@
 
 
 function createElement(user){
-    var img = $("<img>")
-            .attr("alt","Foto Profilo")
-            .attr("src",user.urlFotoProfilo);
-    var name = $("<h2>").html(user.nome);
+    
+    var name = $("<h3>").html(user.nome);
     var link = $("<a>")
-            .attr("href", "index.html?user="+user.id)
-            .html("Link al Profilo");
+            .attr("href", "Bacheca?user="+user.id)
+            .html(user.nome+ user.cognome);
     
     var userData = $("<div>")
             .attr("class","userData")
             .append(name)
             .append(link);
-    var profilePic = $("<div>")
-            .attr("class","profilePic")
-            .append(img);
-    
     
     return $("<div>")
             .attr("class","user")
-            .append(profilePic)
             .append(userData);
 }
 

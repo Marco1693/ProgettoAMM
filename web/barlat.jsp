@@ -13,9 +13,19 @@
             <button id="searchYourUser">Search</button>
     </div>
     <h2 class="pers"> Persone </h2>
-        <c:forEach var="utenti" items="${utenti}">
-            <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome} ${utenti.cognome}</a></h3>
-        </c:forEach>
+    <div id="usersList">
+        <%--<c:forEach var="utenti" items="${utenti}">
+                <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome} ${utenti.cognome}</a></h3>
+            </c:forEach>--%>
+            <c:forEach var="utenti" items="${utenti}">
+                    <div class="user">
+                        <div class="userData">
+                            <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome} ${utenti.cognome}</a></h3>
+                        </div>
+                    </div>
+            </c:forEach>    
+                
+    </div>
 
     <h2 class="grup"> Gruppi </h2>
     <c:forEach var="gruppi" items="${gruppi}">

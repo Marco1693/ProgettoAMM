@@ -125,7 +125,7 @@ public class UtenteFactory {
             ResultSet res = stmt.executeQuery();
 
             // ciclo sulle righe restituite
-            while (res.next()) {
+            if (res.next()) {
                 Utente current = new Utente();
                 current.setId(res.getInt("utente_id"));
                 current.setUsername(res.getString("username"));
@@ -183,5 +183,47 @@ public class UtenteFactory {
         catch(SQLException e){
             e.printStackTrace();
         }
+    }
+    public List getListaUtenti(String name) {
+        List<Utente> listaUtenti = new ArrayList<Utente>();
+        
+        try {
+            
+            Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
+            
+            String query = 
+                      "select * from utenti where name like ?";
+            
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+           
+            stmt.setString(1, "%" + name + "%");
+            
+            
+            ResultSet res = stmt.executeQuery();
+
+           
+            while (res.next()) {
+                Utente current = new Utente();
+                current.setId(res.getInt("utente_id"));
+                current.setUsername(res.getString("username"));
+                current.setNome(res.getString("nome"));
+                current.setCognome(res.getString("cognome"));
+                current.setPassword(res.getString("password"));
+                current.setUrlFotoProfilo(res.getString("urlFotoProfilo"));
+                current.setFraseDiPresentazione(res.getString("fraseDiPresentazione"));
+                current.setDataNascita(res.getString("dataNascita"));
+                
+                listaUtenti.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return listaUtenti;
     }
 }

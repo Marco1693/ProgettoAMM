@@ -16,6 +16,8 @@
         <meta name="keywords" content="Nerdbook amici descrizione social network login registrazione">
         
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/ricerca.js"></script>
    </head>
     <body>
         <div id="barnav">
