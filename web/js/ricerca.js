@@ -7,7 +7,7 @@
 
 function createElement(user){
     
-    var name = $("<h3>").html(user.nome);
+    var name = $("<h2>").html(user.nome);
     var link = $("<a>")
             .attr("href", "Bacheca?user="+user.id)
             .html(user.nome+ user.cognome);
@@ -23,7 +23,7 @@ function createElement(user){
 }
 
 function stateSuccess(data){
-    var userListPage = $("#usersList");
+    var userListPage = $("#userList");
     
     $(userListPage).empty();
     for(var instance in data){

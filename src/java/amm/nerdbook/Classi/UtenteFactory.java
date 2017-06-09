@@ -125,7 +125,7 @@ public class UtenteFactory {
             ResultSet res = stmt.executeQuery();
 
             // ciclo sulle righe restituite
-            if (res.next()) {
+            while (res.next()) {
                 Utente current = new Utente();
                 current.setId(res.getInt("utente_id"));
                 current.setUsername(res.getString("username"));
