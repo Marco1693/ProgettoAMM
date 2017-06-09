@@ -31,7 +31,7 @@ function stateSuccess(data){
     }
 }
 function stateFailure(data, state){
-    console.log(state);
+    console.log(state + data);
 }
 
 $(document).ready(function(){

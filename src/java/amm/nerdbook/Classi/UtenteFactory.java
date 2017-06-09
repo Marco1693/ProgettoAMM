@@ -191,14 +191,13 @@ public class UtenteFactory {
             
             Connection conn = DriverManager.getConnection(connectionString, "marko123", "asdasd");
             
-            String query = 
-                      "select * from utenti where name like ?";
+            String query = "select utenti_id,username,nome,cognome,password,urlFotoProfilo,fraseDiPresentazione,dataNascita from utenti where nome like ?";
             
             
             PreparedStatement stmt = conn.prepareStatement(query);
             
            
-            stmt.setString(1, "%" + name + "%");
+            stmt.setString(1,"%"+name+"%");
             
             
             ResultSet res = stmt.executeQuery();
