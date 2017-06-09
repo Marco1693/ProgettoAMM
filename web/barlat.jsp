@@ -8,6 +8,10 @@
 
 
 <div id="barlat">
+     <div id="searchUser">
+            <input id="searchField" type="text" placeholder="Ricerca..." value="">
+            <button id="searchYourUser">Search</button>
+    </div>
     <h2 class="pers"> Persone </h2>
         <c:forEach var="utenti" items="${utenti}">
             <h3><a href="Bacheca?user=${utenti.id}">${utenti.nome} ${utenti.cognome}</a></h3>

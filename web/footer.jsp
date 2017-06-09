@@ -7,5 +7,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="footer">
-                <a href="descrizione.html">Descrizione</a>
+                <a href="descrizione.jsp">Descrizione</a>
 </div>
